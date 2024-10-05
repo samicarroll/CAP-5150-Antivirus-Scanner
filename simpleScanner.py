@@ -73,13 +73,28 @@ def contains_embedded_javascript(pdf_path):
     try:
         with open(pdf_path, "rb") as file:
             reader = PyPDF2.PdfReader(file)
+            # Check for embedded JavaScript in the document's resources
             for page in reader.pages:
-                if '/JS' in page:
-                    print(f"[!] Embedded JavaScript found in {pdf_path}\n")
+                # Look for /JS, /JavaScript or any potential scripts in /Annots
+                if '/JS' in page or '/JavaScript' in page:
+                    js_content = page.get('/JS', '') or page.get('/JavaScript', '')
+                    print(f"[!] Embedded JavaScript found in {pdf_path}:")
+                    print(f"    - JavaScript content: {js_content}\n")
                     return True
+                # Check annotations that might contain JavaScript
+                if '/Annots' in page:
+                    for annotation in page['/Annots']:
+                        annotation_dict = annotation.get_object()
+                        if '/A' in annotation_dict and '/S' in annotation_dict['/A']:
+                            action_type = annotation_dict['/A']['/S']
+                            if action_type in ['/JavaScript', '/GoToE', '/Launch']:
+                                print(f"[!] JavaScript action found in annotation in {pdf_path}:")
+                                print(f"    - Action type: {action_type}\n")
+                                return True
     except Exception as e:
         print(f"Error checking for embedded JavaScript: {e}")
     return False
+
 
 
 """
