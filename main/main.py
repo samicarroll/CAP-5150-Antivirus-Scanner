@@ -27,8 +27,8 @@ import time
 import pickle
 import numpy as np
 import pandas as pd
-import PyPDF2
-from pdfminer.high_level import extract_text
+import PyPDF2     #reading, writing, merging/splitting, manipulating pages, adding content, encrypting and decrypting PDFs
+from pdfminer.high_level import extract_text #extract and analyze text data in PDFs
 import matplotlib.pyplot as plt
 
 # Define the directory where the model and feature names are stored
