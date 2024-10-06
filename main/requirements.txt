@@ -1,4 +1,3 @@
-altgraph @ file:///AppleInternal/Library/BuildRoots/860631e9-c1c5-11ee-98ee-b6ef2fd8d87b/Library/Caches/com.apple.xbs/Sources/python3/altgraph-0.17.2-py2.py3-none-any.whl
 certifi==2024.8.30
 cffi==1.17.1
 charset-normalizer==3.3.2
@@ -7,13 +6,11 @@ cryptography==43.0.1
 cycler==0.12.1
 exceptiongroup==1.2.1
 fonttools==4.54.1
-future @ file:///AppleInternal/Library/BuildRoots/860631e9-c1c5-11ee-98ee-b6ef2fd8d87b/Library/Caches/com.apple.xbs/Sources/python3/future-0.18.2-py3-none-any.whl
 idna==3.10
 importlib_resources==6.4.5
 iniconfig==2.0.0
 joblib==1.4.2
 kiwisolver==1.4.7
-macholib @ file:///AppleInternal/Library/BuildRoots/860631e9-c1c5-11ee-98ee-b6ef2fd8d87b/Library/Caches/com.apple.xbs/Sources/python3/macholib-1.15.2-py2.py3-none-any.whl
 matplotlib==3.9.2
 numpy==2.0.2
 packaging==24.0
@@ -31,7 +28,6 @@ pytz==2024.2
 requests==2.32.3
 scikit-learn==1.5.2
 scipy==1.13.1
-six @ file:///AppleInternal/Library/BuildRoots/860631e9-c1c5-11ee-98ee-b6ef2fd8d87b/Library/Caches/com.apple.xbs/Sources/python3/six-1.15.0-py2.py3-none-any.whl
 threadpoolctl==3.5.0
 tomli==2.0.1
 tqdm==4.66.5
