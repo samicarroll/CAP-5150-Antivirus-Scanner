@@ -2,7 +2,7 @@
 Antivirus Scanner that will detect malware in malicious PDFs using Machine Learning
 
 **Obtaining Malicious PDFs**:
-[Malshare](https://malshare.com/)
+https://www.unb.ca/cic/datasets/pdfmal-2022.html (Only download and use in sandbox environment! Link at bottom of page)
 -
 **Sandbox Environment**:
 [Cuckoo](https://cuckoosandbox.org/)
