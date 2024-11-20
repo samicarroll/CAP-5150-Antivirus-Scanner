@@ -40,6 +40,9 @@ Libraries can be installed by running the following command in the `main` direct
 
     > `./scanPDF.sh`
 
+3. When prompted, enter the directory of the PDF you want to scan
+    > i.e., `testing_files/testpdf2.pdf`
+
 
 *NOTE: The scanPDF script may need be altered to satisfy system requirements. Currently the script is configured to use pip and python*
 Here's a detailed README file for the GitHub repository project **CAP-5150-Antivirus-Scanner**:
