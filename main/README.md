@@ -4,7 +4,7 @@ Antivirus Scanner that will detect malware in malicious PDFs using Machine Learn
 ## Obtaining Malicious PDFs:
 
 
-[Malshare](https://malshare.com/)
+[CIC-Evasive-PDFMal2022 Dataset](https://www.unb.ca/cic/datasets/pdfmal-2022.html)
 
 
 ## Sandbox Environment:
@@ -38,7 +38,7 @@ Libraries can be installed by running the following command in the `main` direct
     > `./scanPDF.sh`
 
 
-*NOTE: The scanPDF script may need be altered to satisfy system requirements. Currently the script is configured to use pip3 and python3*
+*NOTE: The scanPDF script may need be altered to satisfy system requirements. Currently the script is configured to use pip and python*
 
 
 ## Machine Learning:
@@ -46,13 +46,15 @@ Libraries can be installed by running the following command in the `main` direct
 `machineLearningModel.py` is used to train the machine learning models and generate the pickle files used in `main.py`
 
 
-`machineLearningModel.py` utilizes a dataset from [Kaggle](https://www.kaggle.com/datasets/dscclass/malware?resource=download) that contains data designed for research and development for malware detection and analysis. 
+`machineLearningModel.py` utilizes a dataset from the [CIC-Evasive-PDFMal2022 Dataset](https://www.unb.ca/cic/datasets/pdfmal-2022.html) that contains data designed for research and development for malware detection and analysis. 
 
-
-The dataset includes binary files of malware, along with corresponding features that describe their characteristics.
+The dataset includes binary files of malware, along with legitimate PDFs for training purposes.
 
 The script produces a Classification Report explaining the results of the data through precision, recall, f1-score, and support. 
 
+The script also produces a Confusion Matrix showing the number of files that are True Positive, False Positive, False Negative, and False Positive.
+
+These metrics can be found in the model_images folder after running the training.py file. 
 
 1. Precision: measures the accuracy of positive predicitions. Precision is measured by the number of true positives divided by the sum of true positives and false positives. 
 
@@ -68,3 +70,5 @@ The script produces a Classification Report explaining the results of the data t
 
 ![Classification Report](images/classification_report_terminal.png)
 
+
+![Classification Report](images/classification_report_terminal.png)
