@@ -19,8 +19,7 @@ https://www.unb.ca/cic/datasets/pdfmal-2022.html (Only download and use in sandb
 
 ## Install Python Libraries: 
 
-
-Libraries that will be beneficial for this project are: pdfminer.six, PyPDF2, yara-python, cuckoo (can be installed through terminal along with python parsing libraries)
+Libraries that will be beneficial for this project are: numpy, pandas, scikit-learn, matplotlib, pymupdf, yara-python, cuckoo (can be installed through terminal along with python parsing libraries)
 
 
 Libraries can be installed by running the following command in the `main` directory 
@@ -35,14 +34,14 @@ Libraries can be installed by running the following command in the `main` direct
 
 1. Navigate to the `main` directory 
 
-    > `cd main`
+    > `cd logisticRegression`
 
 2. Execute the following command:
 
     > `./scanPDF.sh`
 
 
-*NOTE: The scanPDF script may need be altered to satisfy system requirements. Currently the script is configured to use pip3 and python3*
+*NOTE: The scanPDF script may need be altered to satisfy system requirements. Currently the script is configured to use pip and python*
 Here's a detailed README file for the GitHub repository project **CAP-5150-Antivirus-Scanner**:
 
 ---
@@ -64,13 +63,15 @@ Modify the `feature_extraction.py` script to customize the extracted features ba
 `machineLearningModel.py` is used to train the machine learning models and generate the pickle files used in `main.py`
 
 
-`machineLearningModel.py` utilizes a dataset from [Kaggle](https://www.kaggle.com/datasets/dscclass/malware?resource=download) that contains data designed for research and development for malware detection and analysis. 
+`machineLearningModel.py` utilizes a dataset from the [CIC-Evasive-PDFMal2022 Dataset](https://www.unb.ca/cic/datasets/pdfmal-2022.html) that contains data designed for research and development for malware detection and analysis. 
 
-
-The dataset includes binary files of malware, along with corresponding features that describe their characteristics.
+The dataset includes binary files of malware, along with legitimate PDFs for training purposes.
 
 The script produces a Classification Report explaining the results of the data through precision, recall, f1-score, and support. 
 
+The script also produces a Confusion Matrix showing the number of files that are True Positive, False Positive, False Negative, and False Positive.
+
+These metrics can be found in the model_images folder after running the training.py file. 
 
 1. Precision: measures the accuracy of positive predicitions. Precision is measured by the number of true positives divided by the sum of true positives and false positives. 
 
@@ -84,4 +85,7 @@ The script produces a Classification Report explaining the results of the data t
 4. Support: measures the number of instances of each class of the dataset. For example, in the classification report shown below, the number of legitimate files in the test dataset was 19,250 files. 
 
 
-![Classification Report](images/classification_report_terminal.png)
+![Classification Report](main/logisticRegression/training_images/classification_report.png)
+
+
+![Classification Report](main/logisticRegression/training_images/confusion_matrix.png)
