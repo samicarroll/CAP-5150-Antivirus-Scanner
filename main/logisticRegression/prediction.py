@@ -1,11 +1,11 @@
 import os
-import pytesseract
 import fitz  # PyMuPDF
 import pickle
 import xml.etree.ElementTree as ET
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 import numpy as np
+
 
 # Load the pre-trained model and vectorizer
 model_filename = 'logistic_regression_model.pkl'
@@ -47,7 +47,7 @@ def extract_xfa_content(pdf_path):
         print(f"Error extracting XFA content: {e}")
     return text
 
-# Function to extract text from the PDF (combining methods)
+# Function to extract text from the PDF
 def extract_text_from_pdf(pdf_path):
     print(f"Extracting text from {pdf_path} using PyMuPDF...")
     text = extract_text_with_pymupdf(pdf_path)

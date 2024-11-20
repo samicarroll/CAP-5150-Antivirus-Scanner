@@ -2,12 +2,10 @@ import os
 import zipfile
 import shutil
 import logging
-from collections import Counter
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix
-from imblearn.over_sampling import SMOTE
 from sklearn.feature_extraction.text import TfidfVectorizer
 import matplotlib.pyplot as plt
 import pickle
@@ -216,21 +214,12 @@ def train_model(legitimate_dir, malicious_dir):
     # Save the model and vectorizer
     with open('logistic_regression_model.pkl', 'wb') as model_file:
         pickle.dump(model, model_file)
-    with open('vectorizer.pkl', 'wb') as vectorizer_file:
+    
+    with open('tfidf_vectorizer.pkl', 'wb') as vectorizer_file:
         pickle.dump(vectorizer, vectorizer_file)
 
-    # Save the confusion matrix and classification report as images
+    # Save confusion matrix and classification report images
     save_confusion_matrix(cm)
+
+    # Generate and save classification report graph
     save_classification_report(classification_report(y_test, y_pred, output_dict=True), 'training_images/classification_report.png')
-
-    print("Model and vectorizer saved as 'logistic_regression_model.pkl' and 'vectorizer.pkl'")
-
-# Main function to be executed
-def main():
-    legitimate_dir = r'training_files/Legitimate' 
-    malicious_dir = r'training_files/Malicious' 
-    train_model(legitimate_dir, malicious_dir)
-
-# Ensure that the main function is called when the script is executed directly
-if __name__ == "__main__":
-    main()
